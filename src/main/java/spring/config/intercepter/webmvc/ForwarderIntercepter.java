@@ -50,8 +50,7 @@ public class ForwarderIntercepter extends HandlerInterceptorAdapter {
 		while (parameterNames.hasMoreElements()) {
 			String paramName = parameterNames.nextElement();
 			String paramValue = request.getParameter(paramName);
-			nameValuePairs.add(new BasicNameValuePair(paramName, paramValue));		
-
+			nameValuePairs.add(new BasicNameValuePair(paramName, paramValue));	
 		}
 		
 		if (request.getMethod().equalsIgnoreCase("post")) {
@@ -60,8 +59,8 @@ public class ForwarderIntercepter extends HandlerInterceptorAdapter {
 			// Execute HTTP Post Request
 			httpResponse = httpclient.execute(httppost);
 		}else{
-//			String paramString = URLEncodedUtils.format(nameValuePairs, "utf-8");
-			HttpGet httpGet = new HttpGet(urlClient + getContext(request));			
+			String paramString = URLEncodedUtils.format(nameValuePairs, "utf-8");
+			HttpGet httpGet = new HttpGet(urlClient + getContext(request) + "?" + paramString);			
 			httpResponse = httpclient.execute(httpGet);
 		}
 		
