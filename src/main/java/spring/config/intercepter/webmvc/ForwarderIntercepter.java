@@ -27,7 +27,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class ForwarderIntercepter extends HandlerInterceptorAdapter {
 
 	private HttpClient httpclient;
-	private static String urlClient = "http://localhost/mobile/";
+//	private static String urlClient = "http://localhost/mobile/";
+	private static String urlClient = "https://maps.googleapis.com/maps/api/geocode/";
 	
 
 
@@ -65,7 +66,6 @@ public class ForwarderIntercepter extends HandlerInterceptorAdapter {
 		}
 		
 
-		System.out.println("this is the response " + response);
 
 //		HttpEntity entity = httpResponse.getEntity();
 //		String responseString = EntityUtils.toString(entity, "UTF-8");
@@ -77,6 +77,7 @@ public class ForwarderIntercepter extends HandlerInterceptorAdapter {
 		response.getOutputStream().write(IOUtils.toByteArray(httpResponse.getEntity().getContent()));
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
+		System.out.println("this is the response " + response);
 		
 	}
 
