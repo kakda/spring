@@ -28,7 +28,7 @@ public class ForwarderIntercepter extends HandlerInterceptorAdapter {
 
 	private HttpClient httpclient;
 //	private static String urlClient = "http://localhost/mobile/";
-	private static String urlClient = "https://maps.googleapis.com/maps/api/geocode/";
+	private static String urlClient = "https://maps.googleapis.com/";
 	
 
 
